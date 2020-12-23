@@ -17,4 +17,30 @@ public class Transaction {
      *The account in which the transaction is held.
      */
     private Account inAccount;
+
+    /**
+     * Creates a new transaction
+     * @param amount - amount being transacted
+     * @param inAccount - in the account that the transaction belongs to
+     */
+    public Transaction(double amount, Account inAccount){
+
+        this.amount = amount;
+        this.inAccount = inAccount;
+        this.timestamp = new Date();
+        this.memo = "";
+    }
+
+    /**
+     * Creates a new transaction
+     * @param amount - amount transacted
+     * @param memo - the memo for the transaction
+     * @param inAccount - the account the transaction belongs to
+     */
+    public Transaction(double amount, String memo, Account inAccount){
+        // call the two-arg constructor. this is another way to call a constructor if you overload the constructor
+        this(amount, inAccount);
+        //set memo
+        this.memo = memo;
+    }
 }

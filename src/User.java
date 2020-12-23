@@ -23,7 +23,7 @@ public class User {
      */
     private ArrayList<Account> accounts;
 
-    /*
+    /**
     * Creating user
     * @param firstName - User's first name
     * @param lastName  - User's last name
@@ -58,6 +58,18 @@ public class User {
         //Print log message
         System.out.printf("New User %s, %s with ID %s created.\n", lastName,
                 firstName, this.uuid);
+    }
+    /**
+    * Adds an account for the user. Called in the Account Class
+    * @param theAccount  Account that is going to be added to the ArrayList of accounts
+    *
+     */
+    public void addAccount(Account theAccount){
+        this.accounts.add(theAccount);
+    }
+
+    public String getUUID(){
+        return this.uuid;
     }
 
 }
