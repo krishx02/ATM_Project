@@ -2,22 +2,28 @@ import java.util.ArrayList;
 import java.util.Random;
 public class Bank {
     /*
-     *
+     * Name of bank
      */
     private String name;
     /*
-     *
+     * Users with said bank
      */
     private ArrayList<User> users;
     /*
-     *
+     * Accounts associated with the bank
      */
     private ArrayList<Account> accounts;
-    /*
-     *
-     */
-    private String address;
 
+    /**
+     * Creates a new bank obj with empty users
+     * @param name    the name of the bank
+     */
+    public Bank(String name){
+
+        this.name = name;
+        this.users = new ArrayList<User>();
+        this.accounts = new ArrayList<Account>();
+    }
     /**
      * Generates unique ID for user
      * @return UUID
@@ -135,5 +141,13 @@ public class Bank {
         }
         //No user found with matching ID and pin
         return null;
+    }
+
+    /**
+     * Returns the name of the bank
+     * @return
+     */
+    public String getName(){
+        return this.name;
     }
 }
