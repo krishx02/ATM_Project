@@ -41,8 +41,8 @@ public class Bank {
 
             //check unique
             nonUnique = false;
-            if(this.user.contains(uuid))
-            for(User u : this.user){
+            if(this.users.contains(uuid))
+            for(User u : this.users){
                 if(uuid.compareTo(u.getUUID()) == 0){
                     nonUnique = true;
                     break;
