@@ -38,8 +38,7 @@ public class Account {
         //This new object that you are creating with the constructor is the term (this) and you can call methods from
         //other classes, and in this case we are going to add the holder and the bank account associated with that obj.
         //It is the same object. Adding same account in each list.
-        holder.addAccount(this);
-        theBank.addAccount(this);
+        //Moved to Bank class
     }
 
     /**

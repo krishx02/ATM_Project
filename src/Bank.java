@@ -8,7 +8,7 @@ public class Bank {
     /*
      *
      */
-    private ArrayList<User> user;
+    private ArrayList<User> users;
     /*
      *
      */
@@ -91,17 +91,49 @@ public class Bank {
     }
 
     /**
-     *
-     * @param theAccount - the account to add
+     * Add an account
+     * @param theAccount   the account to add
      */
     public void addAccount(Account theAccount){
         this.accounts.add(theAccount);
     }
-
+    /**
+     * Creates new user of bank
+     * @param firstName Users firstName
+     * @param lastName Users lastName
+     * @param pin - User's pin
+     * @return new user object
+     */
     public User addUser(String firstName, String lastName, String pin){
         //creates user object and is added to the list
         User newUser = new User(firstName, lastName, pin, this);
-        this.user.add(newUser);
+        this.users.add(newUser);
 
+        //create a savings account and adds bank accounts to list
+        Account newAccount = new Account("Savings", newUser, this);
+        newUser.addAccount(newAccount);
+        this.addAccount(newAccount);
+
+        return newUser;
+    }
+
+    /**
+     * Get the user object associated with a particular userID and pin, if valid
+     * @param userID   the UUID of the user login
+     * @param pin      the pin of th euser
+     * @return         the user associated with the login, or null if unsuccessful
+     */
+    public User userLogin(String userID, String pin){
+
+        //search through list of users
+        for(User u: this.users){
+
+            //check user ID
+            if(u.getUUID().compareTo(userID) == 0 && u.validatePin(pin)){
+                return u;
+            }
+        }
+        //No user found with matching ID and pin
+        return null;
     }
 }
