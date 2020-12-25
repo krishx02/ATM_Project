@@ -95,4 +95,40 @@ public class User {
         return false;
 
     }
+
+    /**
+     * Return the user's first name
+     * @return the first name
+     */
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    /**
+     * Prints summaries for accounts for the user
+     */
+    public void printAccountSummary(){
+
+        System.out.printf("\n\n %s's accounts summary", this.firstName);
+        for(int i = 0; i < this.accounts.size(); i++){
+            System.out.printf("%d) %s\n", i+1, this.accounts.get(i).getSummaryLine());
+        }
+        System.out.println();
+    }
+
+    /**
+     * Get the number of accounts of the user
+     * @return the number of the accounts that the user has
+     */
+    public int numAccounts(){
+        return this.accounts.size();
+    }
+
+    /**
+     * Print transaction history for a particular account
+     * @param acctIdx the index of the account to use
+     */
+    public void printAccTransHistory(int acctIdx){
+        this.accounts.get(acctIdx).printTransHistory();
+    }
 }
