@@ -91,4 +91,16 @@ public class Account {
         }
         System.out.println();
     }
+
+    /**
+     * Add a new transaction in the account
+     * @param amount     the amount transacted
+     * @param memo       the transaction memo
+     */
+    public void addTransaction(double amount, String memo){
+        //create new transaction object and add it to the lsit
+        Transaction newTrans = new Transaction(amount, memo, this);
+        this.transactions.add(newTrans);
+
+    }
 }
