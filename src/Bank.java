@@ -145,7 +145,7 @@ public class Bank {
 
     /**
      * Returns the name of the bank
-     * @return
+     * @return name of the bank
      */
     public String getName(){
         return this.name;
